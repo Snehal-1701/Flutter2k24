@@ -2,6 +2,7 @@ class Test {
   int? z;
   void printData() {
     print(z);
+    print("In printData");
   }
 }
 
