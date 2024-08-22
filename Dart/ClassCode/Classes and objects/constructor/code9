@@ -1,0 +1,25 @@
+class Employee {
+    int? x;
+    String? y;
+
+    // constructor can't have return type
+    // void Employee(int x, String y) {
+    //     this.x = x;
+    //     this.y = y;
+    // }
+
+    Employee(int x, String y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    void empInfo() {
+        print(x);
+        print(y);
+    }
+}
+
+void main() {
+    Employee emp = Employee(18,"Virat");
+    emp.empInfo();
+}
