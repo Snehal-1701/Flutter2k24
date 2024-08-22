@@ -7,7 +7,6 @@ void main() {
 
   obj.setY = 20;
   print(obj.getY);
-  
 
   // obj._disp();
 }
