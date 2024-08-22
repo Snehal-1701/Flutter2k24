@@ -12,5 +12,6 @@ class Demo {
   set setY(int y) {
     _y = y;
     print("In set");
+    stdout.write("Print");
   }
 }

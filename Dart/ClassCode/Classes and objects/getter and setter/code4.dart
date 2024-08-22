@@ -7,4 +7,5 @@ void main() {
 
   obj.setY = 20;
   print(obj.getY);
+  // stdout.write("Print");
 }
