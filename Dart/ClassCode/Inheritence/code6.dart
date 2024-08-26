@@ -12,7 +12,7 @@ void main() {
   print(obj.x);
   // print(obj.y);
 
-  Demo obj1 = DemoChild();
-  print(obj.x);
-  print(obj.y);
+  // Demo obj1 = DemoChild();
+  // print(obj.x);
+  // print(obj.y);
 }
