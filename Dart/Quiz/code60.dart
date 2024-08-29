@@ -20,6 +20,6 @@ void main() {
   Animal obj = Dog();
   obj.makeSound();
 
-  Cat obj2 = Animal();
-  obj2.scratch();
+  // Cat obj2 = Animal();
+  // obj2.scratch();
 }

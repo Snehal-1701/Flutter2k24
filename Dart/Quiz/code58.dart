@@ -6,7 +6,7 @@ class Parent {
   Parent(this._x) ;
 
   void fun() {
-    print(x);
+    // print(x);
   }
 }
 

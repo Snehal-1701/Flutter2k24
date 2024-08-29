@@ -12,6 +12,7 @@ class MacDIndia {
 }
 
 class SinhgadMacD extends MacDIndia {
+  @override
   int marketing() {
     print("Puneri marketing");
     return 0;
