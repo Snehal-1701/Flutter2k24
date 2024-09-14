@@ -21,6 +21,7 @@ bool isArmstrong(int num) {
     for(int i=1; i<count; i++) {
       mult *= temp;
     }
+    
     sum += mult;
     n ~/= 10;
   }
