@@ -1,4 +1,4 @@
-// Perfect number 
+// Strong number 
 
 import 'dart:io';
 
