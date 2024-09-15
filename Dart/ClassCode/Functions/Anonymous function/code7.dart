@@ -4,7 +4,7 @@ var add = (int x, int y) {
 };
 
 int fun(int x, int y) {
-  print("In formal function");
+  print("In normal function");
   return x+y;
 }
 
