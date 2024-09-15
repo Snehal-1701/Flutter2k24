@@ -7,6 +7,8 @@ int fun(int x, int y) {
   print("In normal function");
   return x+y;
 }
+var gun = () {};
+var run = () {};
 
 void main() {
   print(fun(10,20));
@@ -17,4 +19,7 @@ void main() {
 
   print("Hashcode : ${add.hashCode}");
   print("Identity HashCode : ${identityHashCode(add)}");
+
+  print("Hashcode : ${gun.hashCode}");
+  print("Identity HashCode : ${identityHashCode(gun)}");
 }
