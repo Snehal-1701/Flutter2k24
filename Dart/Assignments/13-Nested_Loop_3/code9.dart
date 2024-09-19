@@ -1,7 +1,6 @@
 // Harshad number 
 import 'dart:io';
 
-
 int harshadNo(int n) {
    while (true) {
     int n1 = n;
