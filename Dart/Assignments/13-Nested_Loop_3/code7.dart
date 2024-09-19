@@ -1,3 +1,5 @@
+// Rectangular numbers  = n * (n+1)
+
 import 'dart:io';
 
 void main() {
