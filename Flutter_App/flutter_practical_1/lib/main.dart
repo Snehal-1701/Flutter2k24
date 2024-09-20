@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override 
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title : "Core2web",
-      home : TestApp(),
+      home : Test1App(),
     );
   }
 }
@@ -35,6 +35,52 @@ class TestApp extends StatelessWidget {
           shape : BoxShape.circle,
         )
       )
+    );
+  }
+}
+
+
+class Test1App extends StatelessWidget {
+  const Test1App({super.key});
+
+  @override 
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar : AppBar(
+        title : Text("SecondApp"),
+        backgroundColor : Colors.blue,
+      ),
+      body : SingleChildScrollView(
+        scrollDirection : Axis.horizontal,
+        child : Row(
+        children : [
+          Container(
+            height : 200,
+            width : 200,
+            decoration : const BoxDecoration(
+              color : Colors.amber,
+              shape : BoxShape.circle,
+            )
+          ),
+                    Container(
+            height : 200,
+            width : 200,
+            decoration : const BoxDecoration(
+              color : Colors.amber,
+              shape : BoxShape.circle,
+            )
+          ),
+                    Container(
+            height : 200,
+            width : 200,
+            decoration : const BoxDecoration(
+              color : Colors.amber,
+              shape : BoxShape.circle,
+            )
+          )
+        ]
+      ),
+      ),
     );
   }
 }
