@@ -56,10 +56,26 @@ class _QuizAppState extends State<QuizApp> {
   int currentQuestionIndex = 0;
   int ans = 0;
   bool  flag = false;
+  int selectedAnswerIndex = -1;
 
+  void changeIndex() {
+    selectedAnswerIndex = -1;
+  }
+
+  MaterialStateProperty<Color?> checkAnswer(int buttonIndex) {
+    if(selectedAnswerIndex != -1) {
+      if(buttonIndex == allQuestion[currentQuestionIndex]["correctAnswer"]) {
+        return const MaterialStatePropertyAll(Colors.green);
+      } else {
+        return const MaterialStatePropertyAll(Colors.red);
+      }
+    }
+    return const MaterialStatePropertyAll(null);
+  }
   @override 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 183, 214, 240),
       appBar: AppBar(
         title: const Text(
           "QuizApp",
@@ -112,9 +128,14 @@ class _QuizAppState extends State<QuizApp> {
             height: 50,
             child: ElevatedButton(
               onPressed: () {
+                if(selectedAnswerIndex == -1) {
+                  setState(() {
+                    selectedAnswerIndex = 0;
+                  });
+                }
               },
               style: ButtonStyle(
-                backgroundColor: flag ? MaterialStateProperty.all(Colors.green) : MaterialStateProperty.all(Colors.white),
+                backgroundColor: checkAnswer(0),
               ),
               child: Text(
                 allQuestion[currentQuestionIndex]["options"][0],
@@ -133,7 +154,17 @@ class _QuizAppState extends State<QuizApp> {
             width: 350,
             height: 50,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if(selectedAnswerIndex == -1) {
+                  setState(() {
+                    selectedAnswerIndex = 1;
+                    changeIndex();
+                  });
+                }
+              },
+              style: ButtonStyle(
+                backgroundColor: checkAnswer(1),
+              ),
               child: Text(
                 allQuestion[currentQuestionIndex]["options"][1],
                 style: const TextStyle(
@@ -151,7 +182,16 @@ class _QuizAppState extends State<QuizApp> {
             width: 350,
             height: 50,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if(selectedAnswerIndex == -1) {
+                  setState(() {
+                    selectedAnswerIndex = 2;
+                  });
+                }
+              },
+              style: ButtonStyle(
+                backgroundColor: checkAnswer(2),
+              ),
               child: Text(
                 allQuestion[currentQuestionIndex]["options"][2],
                 style: const TextStyle(
@@ -169,7 +209,16 @@ class _QuizAppState extends State<QuizApp> {
             width: 350,
             height: 50,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if(selectedAnswerIndex == -1) {
+                  setState(() {
+                    selectedAnswerIndex = 3;
+                  });
+                }
+              },
+              style: ButtonStyle(
+                backgroundColor: checkAnswer(3),
+              ),
               child: Text(
                 allQuestion[currentQuestionIndex]["options"][3],
                 style: const TextStyle(
