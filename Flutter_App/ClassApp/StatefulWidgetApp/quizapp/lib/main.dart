@@ -58,16 +58,14 @@ class _QuizAppState extends State<QuizApp> {
   bool  flag = false;
   int selectedAnswerIndex = -1;
 
-  void changeIndex() {
-    selectedAnswerIndex = -1;
-  }
-
-  MaterialStateProperty<Color?> checkAnswer(int buttonIndex) {
+  MaterialStateProperty<Color?> checkAnswer(int answerIndex) {
     if(selectedAnswerIndex != -1) {
-      if(buttonIndex == allQuestion[currentQuestionIndex]["correctAnswer"]) {
+      if(answerIndex == allQuestion[currentQuestionIndex]["correctAnswer"]) {
         return const MaterialStatePropertyAll(Colors.green);
-      } else {
+      } else if(selectedAnswerIndex == answerIndex){
         return const MaterialStatePropertyAll(Colors.red);
+      } else {
+        return const MaterialStatePropertyAll(null);
       }
     }
     return const MaterialStatePropertyAll(null);
