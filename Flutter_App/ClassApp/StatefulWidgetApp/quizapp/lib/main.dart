@@ -95,7 +95,12 @@ class _QuizAppState extends State<QuizApp> {
         body: Column(
           children: [
             const SizedBox(
-              height: 50,
+              height: 30,
+            ),
+            const SizedBox(
+              height: 150,
+              width: 150,
+              child: Image(image: AssetImage('Assets/quiz1.png')),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -269,29 +274,65 @@ class _QuizAppState extends State<QuizApp> {
         ),
         body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 30,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 80,
+              ),
+              Container(
+                height: 300,
+                width: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  image: const DecorationImage(image: NetworkImage("https://img.freepik.com/premium-vector/winner-trophy-cup-with-ribbon-confetti_51486-122.jpg")),
                 ),
-                Container(
-                  height: 300,
-                  width: 300,
-                  child: count == 5 ? Image.network("https://c7.alamy.com/comp/2A8RT5C/business-employee-promotion-vector-character-business-male-employee-character-with-promotion-achievement-standing-in-stage-holding-trophy-2A8RT5C.jpg"): Image.network("https://c7.alamy.com/comp/FGBN8Y/illustration-of-a-template-for-certificate-of-achievement-FGBN8Y.jpg"),
-              
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Text(
+                "Congratulations !!!",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
                 ),
-                const SizedBox(
-                  height: 30,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Score : $count / ${allQuestion.length}",
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
                 ),
-                Text("Score : $count : ${allQuestion.length}")
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  questionScreen = true;
+                  currentQuestionIndex = 0;
+                  selectedAnswerIndex = -1;
+                  count = 0;
+                  setState(() {});
+                },
+                child: const Text(
+                  "Reset",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-        );
+      );
     }
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
