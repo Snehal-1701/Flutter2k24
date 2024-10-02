@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ContainerDemo6 extends StatelessWidget  {
-  const ContainerDemo6({super.key});
+class ContainerDemo4 extends StatelessWidget  {
+  const ContainerDemo4({super.key});
 
   @override 
   Widget build(BuildContext context) {
@@ -23,12 +23,13 @@ class ContainerDemo6 extends StatelessWidget  {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 237, 86, 245),
-                borderRadius: BorderRadiusDirectional.only(
-                  topStart: Radius.circular(20),
-                  bottomEnd: Radius.circular(20),
-                )
+              decoration:  BoxDecoration(
+                color: const Color.fromARGB(255, 192, 234, 250), 
+                
+                border:  Border.all(
+                  color: Colors.red,
+                  width: 5,
+                ),
               ),
               width: 300,
               height: 300,
