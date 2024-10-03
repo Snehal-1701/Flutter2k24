@@ -1,7 +1,7 @@
 Future<int> fun() {
   return Future.delayed(
     Duration(
-      seconds: 3,
+      seconds: 4,
     ),
     () => 10,
   );
