@@ -10,6 +10,7 @@ import 'code7.dart';
 import 'code8.dart';
 import 'code9.dart';
 import 'code10.dart';
+import 'container_gradient.dart';
 
 void main() {
   runApp(const MainApp());
@@ -22,7 +23,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ContainerDemo3(),
+      home: ContainerGradient1(),
     );
   }
 }
