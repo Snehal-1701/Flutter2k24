@@ -144,7 +144,7 @@ class HomePage extends StatelessWidget {
                                 color: const Color.fromARGB(255, 107, 39, 159),
                               ),
                               child: const Icon(
-                                Icons.account_balance_outlined,
+                                Icons.person_3_outlined,
                                 size: 40,
                                 color: Colors.white,
                               ),
@@ -168,16 +168,6 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            // const SizedBox(
-                            //   width: 70,
-                            //   child: Text(
-                            //     "To Bank/UPI ID",
-                            //     style: TextStyle(
-                            //       fontSize: 13,
-                            //       fontWeight: FontWeight.w500,
-                            //     ),
-                            //   ),
-                            // ),
                           ],
                         ),
                         // 3
@@ -192,7 +182,7 @@ class HomePage extends StatelessWidget {
                                 color: const Color.fromARGB(255, 107, 39, 159),
                               ),
                               child: const Icon(
-                                Icons.account_balance_outlined,
+                                Icons.lock_clock,
                                 size: 40,
                                 color: Colors.white,
                               ),
