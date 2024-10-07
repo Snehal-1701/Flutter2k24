@@ -283,7 +283,7 @@ class _QuizAppState extends State<QuizApp> {
                 height: 300,
                 width: 300,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(image: NetworkImage("https://img.freepik.com/premium-vector/winner-trophy-cup-with-ribbon-confetti_51486-122.jpg")),
                 ),
               ),
