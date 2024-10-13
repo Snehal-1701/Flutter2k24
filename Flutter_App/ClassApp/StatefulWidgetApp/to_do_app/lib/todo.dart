@@ -10,7 +10,6 @@ class To_Do_UI extends StatefulWidget {
 }
 
 class _To_Do_UI extends State<To_Do_UI> {
-
   List colorList = [
     const Color.fromRGBO(250, 232, 232, 1),
     const Color.fromRGBO(232, 237, 250, 1),
@@ -32,6 +31,24 @@ class _To_Do_UI extends State<To_Do_UI> {
         ),
       ),
       body: buildCard(),
+      floatingActionButton: Container(
+        height: 60,
+        width: 60,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: const Color.fromRGBO(2, 167, 177, 1),
+        ),
+        child: GestureDetector(
+          onTap: () {
+            bottomSheet();
+          },
+          child: const Icon(
+            Icons.add,
+            size: 40,
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 
@@ -112,7 +129,7 @@ class _To_Do_UI extends State<To_Do_UI> {
                         style: GoogleFonts.quicksand(
                           fontSize: 11,
                           fontWeight: FontWeight.w500,
-                          color: Color.fromRGBO(84, 84, 84, 1),
+                          color: const Color.fromRGBO(84, 84, 84, 1),
                         ),
                       ),
                     ),
@@ -142,6 +159,101 @@ class _To_Do_UI extends State<To_Do_UI> {
                       width: 5,
                     ),
                   ],
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
+  void bottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            padding: const EdgeInsets.all(15),
+            child: const Column(
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: "Task Title",
+                    enabledBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.black
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.black
+                        // color: Color.fromRGBO(2, 167, 177, 1),
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: "Description",
+                    enabledBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.black
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.black
+                        // color: Color.fromRGBO(2, 167, 177, 1),
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: "Date",
+                    enabledBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.black
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.black
+                        // color: Color.fromRGBO(2, 167, 177, 1),
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
