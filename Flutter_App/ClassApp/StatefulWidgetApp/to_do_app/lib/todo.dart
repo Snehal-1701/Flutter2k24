@@ -2,20 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'card.dart';
 
-class To_Do_UI extends StatefulWidget {
-  const To_Do_UI({super.key});
+class TodoAppUI extends StatefulWidget {
+  const TodoAppUI({super.key});
 
   @override
-  State<To_Do_UI> createState() => _To_Do_UI();
+  State<TodoAppUI> createState() => _TodoAppUIState();
 }
 
-class _To_Do_UI extends State<To_Do_UI> {
+class _TodoAppUIState extends State<TodoAppUI> {
   List colorList = [
     const Color.fromRGBO(250, 232, 232, 1),
     const Color.fromRGBO(232, 237, 250, 1),
     const Color.fromRGBO(250, 249, 232, 1),
     const Color.fromRGBO(250, 232, 250, 1),
   ];
+
+  List<String> imageList = [
+    "assets/profile1.jpg",
+    "assets/profile2.png",
+    "assets/profile3.jpg",
+    "assets/profile4.png",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +70,7 @@ class _To_Do_UI extends State<To_Do_UI> {
               borderRadius: BorderRadius.circular(15),
               color: colorList[index % colorList.length],
             ),
+            
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -78,11 +87,13 @@ class _To_Do_UI extends State<To_Do_UI> {
                             shape: BoxShape.circle,
                             color: Colors.white,
                           ),
-                          child: const Icon(
-                            Icons.image_outlined,
-                            color: Colors.grey,
-                            size: 50,
-                          ),
+                          clipBehavior: Clip.antiAlias,
+                          child: Image.asset(imageList[index%imageList.length]),
+                          // child: const Icon(
+                          //   Icons.image_outlined,
+                          //   color: Colors.grey,
+                          //   size: 50,
+                          // ),
                         ),
                       ],
                     ),
@@ -169,30 +180,60 @@ class _To_Do_UI extends State<To_Do_UI> {
   void bottomSheet() {
     showModalBottomSheet(
         context: context,
+        isScrollControlled: true,
         builder: (BuildContext context) {
-          return Container(
-            padding: const EdgeInsets.all(15),
-            child: const Column(
+          return Padding(
+            padding: EdgeInsets.only(
+                top: 15.0,
+                left: 15,
+                right: 15,
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 10,
+                Center(
+                  child: Text(
+                    "Create To-Do ",
+                    style: GoogleFonts.quicksand(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Title",
+                  style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: const Color.fromRGBO(0, 139, 148, 1),
+                  ),
                 ),
                 TextField(
                   decoration: InputDecoration(
-                    hintText: "Task Title",
-                    enabledBorder:  OutlineInputBorder(
+                    hintText: "Lorem Ipsum typeseting industry. ",
+                    hintStyle: GoogleFonts.quicksand(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.black
+                        width: 1,
+                        color: Color.fromRGBO(0, 139, 148, 1),
                       ),
                       borderRadius: BorderRadius.all(
                         Radius.circular(15),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.black
+                        width: 1,
+                        color: Color.fromRGBO(0, 139, 148, 1),
                         // color: Color.fromRGBO(2, 167, 177, 1),
                       ),
                       borderRadius: BorderRadius.all(
@@ -201,25 +242,41 @@ class _To_Do_UI extends State<To_Do_UI> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Description",
+                  style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: const Color.fromRGBO(0, 139, 148, 1),
+                  ),
                 ),
                 TextField(
+                  maxLines: 3,
                   decoration: InputDecoration(
-                    hintText: "Description",
-                    enabledBorder:  OutlineInputBorder(
+                 
+                    hintText:
+                        "TSimply dummy text of the printing and  has been the typesetting Lorem Ipsum has been the industry.",
+                    hintStyle: GoogleFonts.quicksand(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.black
+                        width: 1,
+                        color: Color.fromRGBO(0, 139, 148, 1),
                       ),
                       borderRadius: BorderRadius.all(
                         Radius.circular(15),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.black
+                        width: 1,
+                        color: Color.fromRGBO(0, 139, 148, 1),
                         // color: Color.fromRGBO(2, 167, 177, 1),
                       ),
                       borderRadius: BorderRadius.all(
@@ -228,25 +285,42 @@ class _To_Do_UI extends State<To_Do_UI> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Date",
+                  style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    color: const Color.fromRGBO(0, 139, 148, 1),
+                  ),
                 ),
                 TextField(
+                  
                   decoration: InputDecoration(
-                    hintText: "Date",
-                    enabledBorder:  OutlineInputBorder(
+                    suffixIcon: const Icon(
+                      Icons.calendar_month_outlined,
+                    ),
+                    hintText: "2023-07-26",
+                    hintStyle: GoogleFonts.quicksand(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.black
+                        width: 1,
+                        color: Color.fromRGBO(0, 139, 148, 1),
                       ),
                       borderRadius: BorderRadius.all(
                         Radius.circular(15),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.black
+                        width: 1,
+                        color: Color.fromRGBO(0, 139, 148, 1),
                         // color: Color.fromRGBO(2, 167, 177, 1),
                       ),
                       borderRadius: BorderRadius.all(
@@ -255,6 +329,27 @@ class _To_Do_UI extends State<To_Do_UI> {
                     ),
                   ),
                 ),
+                const SizedBox(height:20),
+                Center(
+                  child: Container(
+                    width: 320,
+                    height: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: const Color.fromRGBO(0,139,148,1),
+                    ),
+                    child: Text(
+                      "Submit",
+                      style: GoogleFonts.quicksand(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height:20),
               ],
             ),
           );
