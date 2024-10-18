@@ -10,8 +10,8 @@ class MyCart extends StatefulWidget {
 class _MyCart extends State<MyCart> {
   @override
   Widget build(BuildContext context) {
-    print("Height: ${MediaQuery.of(context).size.height}");
-    print("Width: ${MediaQuery.of(context).size.width}");
+    // print("Height: ${MediaQuery.of(context).size.height}");
+    // print("Width: ${MediaQuery.of(context).size.width}");
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(

@@ -410,43 +410,408 @@ class _HomeScreen extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Popular Destinations",
-                        style: GoogleFonts.inter(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "Sorted by Higher reting",
-                            style: GoogleFonts.inter(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: const Color.fromRGBO(179, 182, 187, 1)),
-                          ),
-                          const Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: Color.fromRGBO(179, 182, 187, 1),
-                          ),
-                        ],
-                      ),
-                       Container(
-                            margin: const EdgeInsets.only(right: 18),
-                            padding: const EdgeInsets.all(10),
-                            width: 150,
-                            height: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: const Color.fromRGBO(233, 237, 248, 1),
-                            ),
-                       ),
-                    ],
+                  Expanded(
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: 2,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Popular Destinations",
+                                style: GoogleFonts.inter(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w800,
+                                  color:  Colors.black,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Sorted by Higher reting",
+                                    style: GoogleFonts.inter(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: const Color.fromRGBO(
+                                            179, 182, 187, 1)),
+                                  ),
+                                  const Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: Color.fromRGBO(179, 182, 187, 1),
+                                  ),
+                                ],
+                              ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 18, right: 18.0),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            width: 150,
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              color: const Color.fromRGBO(
+                                                  233, 237, 248, 1),
+                                            ),
+                                            child: Image.asset(
+                                              "assets/icons/image.png",
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 15),
+                                            width: 150,
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Cancum",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                    const Spacer(),
+                                                    const Icon(Icons.star,
+                                                        color: Color.fromRGBO(
+                                                            228, 161, 2, 1),
+                                                        size: 16),
+                                                    const SizedBox(width: 5),
+                                                    Text(
+                                                      "4.6",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: const Color
+                                                            .fromRGBO(
+                                                            228, 161, 2, 1),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Mexico",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                    Text(
+                                                      "848 Reviews",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        right: 18.0,
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 18),
+                                            // padding: const EdgeInsets.all(10),
+                                            width: 150,
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              color: const Color.fromRGBO(
+                                                  233, 237, 248, 1),
+                                            ),
+                                            child: Image.asset(
+                                              "assets/icons/image.png",
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 15),
+                                            width: 150,
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Cancum",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                    const Spacer(),
+                                                    const Icon(Icons.star,
+                                                        color: Color.fromRGBO(
+                                                            228, 161, 2, 1),
+                                                        size: 16),
+                                                    const SizedBox(width: 5),
+                                                    Text(
+                                                      "4.6",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: const Color
+                                                            .fromRGBO(
+                                                            228, 161, 2, 1),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Mexico",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                    Text(
+                                                      "848 Reviews",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        right: 18.0,
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 18),
+                                            // padding: const EdgeInsets.all(10),
+                                            width: 150,
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              color: const Color.fromRGBO(
+                                                  233, 237, 248, 1),
+                                            ),
+                                            child: Image.asset(
+                                              "assets/icons/image.png",
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 15),
+                                            width: 150,
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Cancum",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                    const Spacer(),
+                                                    const Icon(Icons.star,
+                                                        color: Color.fromRGBO(
+                                                            228, 161, 2, 1),
+                                                        size: 16),
+                                                    const SizedBox(width: 5),
+                                                    Text(
+                                                      "4.6",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: const Color
+                                                            .fromRGBO(
+                                                            228, 161, 2, 1),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Mexico",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                    Text(
+                                                      "848 Reviews",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        right: 18.0,
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 18),
+                                            // padding: const EdgeInsets.all(10),
+                                            width: 150,
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              color: const Color.fromRGBO(
+                                                  233, 237, 248, 1),
+                                            ),
+                                            child: Image.asset(
+                                              "assets/icons/image.png",
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 15),
+                                            width: 150,
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Cancum",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                    const Spacer(),
+                                                    const Icon(Icons.star,
+                                                        color: Color.fromRGBO(
+                                                            228, 161, 2, 1),
+                                                        size: 16),
+                                                    const SizedBox(width: 5),
+                                                    Text(
+                                                      "4.6",
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: const Color
+                                                            .fromRGBO(
+                                                            228, 161, 2, 1),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Mexico",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                    Text(
+                                                      "848 Reviews",
+                                                      style: GoogleFonts.inter(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: const Color
+                                                              .fromRGBO(138,
+                                                              150, 172, 1)),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        }),
                   ),
                 ],
               ),
