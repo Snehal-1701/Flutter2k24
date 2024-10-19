@@ -228,6 +228,20 @@ class _TodoUIState extends State<TodoUI> {
           ),
         ],
       ),
+      floatingActionButton:  Container(
+        height: 56,
+        width: 56,
+        decoration: const BoxDecoration(
+          // borderRadius: BorderRadius.circular(20),
+          shape: BoxShape.circle,
+          color:  Color.fromRGBO(89, 57, 241, 1),
+        ),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 40,
+        ),
+      ),
     );
   }
 }
