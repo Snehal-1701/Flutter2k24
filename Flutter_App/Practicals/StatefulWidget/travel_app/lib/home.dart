@@ -927,7 +927,8 @@ class _HomeScreen extends State<HomeScreen> {
                   //   ),
                   // ),
                 
-          Expanded(
+          Container(
+            height:MediaQuery.of(context).size.height*0.45,
             child: ListView.builder(
               itemCount: 2,
               shrinkWrap: true,
@@ -981,6 +982,7 @@ class _HomeScreen extends State<HomeScreen> {
                               ),
                               const SizedBox(height: 10),
                               Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
                                     "Cancun",
@@ -990,21 +992,22 @@ class _HomeScreen extends State<HomeScreen> {
                                       color: Colors.black,
                                     ),
                                   ),
-                                  const Spacer(),
+                                  //const Spacer(),
                                   const Icon(
-                                    Icons.star,
-                                    color: Color.fromRGBO(228, 161, 2, 1),
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Text(
-                                    "4.6",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: const Color.fromRGBO(228, 161, 2, 1),
-                                    ),
-                                  ),
+                                                                      Icons.star,
+                                                                      color: Color.fromRGBO(228, 161, 2, 1),
+                                                                      size: 16,
+                                                                    ),
+                                                                    const SizedBox(width: 5),
+                                                                    Text(
+                                                                      "4.6",
+                                                                      style: GoogleFonts.inter(
+                                                                        fontSize: 14,
+                                                                        fontWeight: FontWeight.w500,
+                                                                        color: const Color.fromRGBO(228, 161, 2, 1),
+                                                                      ),
+                                                                    ),
+            
                                 ],
                               ),
                               const SizedBox(height: 5),
@@ -1039,6 +1042,8 @@ class _HomeScreen extends State<HomeScreen> {
               },
             ),
           ),
+              
+              
                 ],
               ),
             ),
