@@ -48,13 +48,7 @@ class _TodoAppUIState extends State<TodoAppUI> {
   ];
 
   ///LIST OF TODOMODEL
-  List<TodoModel> listOfTask = [
-    TodoModel(
-      title: "Flutter",
-      description: "Building to do UI",
-      date: "10 june 2024",
-    ),
-  ];
+  List<TodoModel> listOfTask = [];
 
   @override
   Widget build(BuildContext context) {
@@ -97,10 +91,6 @@ class _TodoAppUIState extends State<TodoAppUI> {
 
   ///SUBMIT
   void submitData(bool isEdit, [TodoModel? obj]) {
-    // titleEmpty = titleController.text.trim().isEmpty;
-    // descriptionEmpty = descriptionController.text.trim().isEmpty;
-    // dateEmpty = dateController.text.trim().isEmpty;
-
     if (titleEmpty == false &&
         descriptionEmpty == false &&
         dateEmpty == false) {
@@ -119,32 +109,14 @@ class _TodoAppUIState extends State<TodoAppUI> {
       }
       clearController();
       Navigator.of(context).pop();
+      setState((){});
+    } else {
+      setState(() {
+        Navigator.pop(context);
+        showBottomSheet(false);
+      });
     }
-    setState(() {});
   }
-
-  // void submitData(bool isEdit, [TodoModel? obj]) {
-  //   if (titleController.text.trim().isNotEmpty &&
-  //       descriptionController.text.trim().isNotEmpty &&
-  //       dateController.text.trim().isNotEmpty) {
-  //     if (isEdit) {
-  //       obj!.title = titleController.text;
-  //       obj.description = descriptionController.text;
-  //       obj.date = dateController.text;
-  //     } else {
-  //       listOfTask.add(
-  //         TodoModel(
-  //           title: titleController.text,
-  //           date: dateController.text,
-  //           description: descriptionController.text,
-  //         ),
-  //       );
-  //     }
-  //     clearController();
-  //     Navigator.of(context).pop();
-  //     setState(() {});
-  //   }
-  // }
 
   ///CLEAR CONTROLLER
   void clearController() {
@@ -339,13 +311,13 @@ class _TodoAppUIState extends State<TodoAppUI> {
                 ///TEXTFIELD - TITLE
                 TextField(
                   controller: titleController,
-                  decoration: const InputDecoration(
-                    // hintText: "Enter title here",
-                    // hintStyle: GoogleFonts.quicksand(
-                    //   fontSize: 15,
-                    //   fontWeight: FontWeight.w400,
-                    //   color: const Color.fromRGBO(0, 0, 0, 1),
-                    // ),
+                  decoration:  InputDecoration(
+                    hintText: "Enter title here",
+                    hintStyle: GoogleFonts.quicksand(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                    ),
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
                         width: 1,
@@ -396,13 +368,13 @@ class _TodoAppUIState extends State<TodoAppUI> {
                 TextField(
                   controller: descriptionController,
                   maxLines: 3,
-                  decoration: const InputDecoration(
-                    // hintText: "Enter description here",
-                    // hintStyle: GoogleFonts.quicksand(
-                    //   fontSize: 15,
-                    //   fontWeight: FontWeight.w400,
-                    //   color: const Color.fromRGBO(0, 0, 0, 1),
-                    // ),
+                  decoration:  InputDecoration(
+                    hintText: "Enter description here",
+                    hintStyle: GoogleFonts.quicksand(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                    ),
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
                         width: 1,
@@ -471,7 +443,7 @@ class _TodoAppUIState extends State<TodoAppUI> {
                     suffixIcon: const Icon(
                       Icons.calendar_month_outlined,
                     ),
-                    // hintText: "add date",
+                    hintText: "add date",
                     hintStyle: GoogleFonts.quicksand(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
