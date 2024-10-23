@@ -16,8 +16,33 @@ void insertPlayerData(PlayerModel pObj) async{
 }
 
 ///GET DATA - QUERY
-getPlayerData() {
-  
+Future<List<Map>> getPlayerData() async{
+  Database localDB = await database;
+  List<Map> playerData = await localDB.query(
+    "Player"
+  );
+  return playerData;
+}
+
+///UPDATE DATA - UPDATE 
+void updatePlayerData(PlayerModel pObj) async {
+  Database localDB = await database;
+  localDB.update(
+    "Player",
+    pObj.playerMap(),
+    where: 'jerNo = ?',
+    whereArgs: [pObj.jerNo],
+  );
+}
+
+///DELETE DATA - DELETE
+void deletePlayerData(int jerNo) async {
+  Database localDB = await database;
+  localDB.delete(
+    "Player",
+    where: "jerNo = ?",
+    whereArgs: [jerNo],
+  );
 }
 
 void playerFun() async{
@@ -58,4 +83,18 @@ void playerFun() async{
   insertPlayerData(pObj2);
 
   print(getPlayerData());
+
+  pObj2 = PlayerModel(
+    playerName: "Rohit Sharma",
+    jerNo: 45,
+    runs: 60000,
+    avg: 60.33
+  );
+
+  updatePlayerData(pObj2);
+  print(getPlayerData());
+
+  deletePlayerData(pObj2.jerNo);
+  print(getPlayerData());
+
 }
