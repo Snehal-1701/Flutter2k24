@@ -5,19 +5,89 @@ import 'package:flutter/material.dart';
 import 'package:studentinfo/get_stud_data.dart';
 
 class AddStudData extends StatefulWidget {
-  const AddStudData({super.key});
+  bool? isEdit;
+  String? id;
+  AddStudData(this.isEdit,{this.id});
+  
 
   @override
-  State createState() => _AddStudDataState();
+  State createState() => _AddStudDataState(isEdit, id:id);
 }
 
 class _AddStudDataState extends State<AddStudData> {
+  bool? isEdit;
+  String? id;
+  _AddStudDataState(this.isEdit,{this.id});
   TextEditingController nameController = TextEditingController();
   TextEditingController collegeController = TextEditingController();
   TextEditingController courseController = TextEditingController();
 
   Map<String, dynamic> courseData = {};
   bool isOffline = true;
+
+  void addStudData(bool isEdit, {String? id}) async {
+    
+    if(isEdit == false) {
+      if (nameController.text.trim().isNotEmpty &&
+        collegeController.text.trim().isNotEmpty &&
+        courseData.isNotEmpty) {
+        Map<String, dynamic> data = {
+          "studName": nameController.text,
+          "collegeName": collegeController.text,
+          "enrolledCourses": courseData
+        };
+        log("Map 2 : $data");
+        await FirebaseFirestore.instance.collection("C2WStudInfo").add(data);
+        nameController.clear();
+        collegeController.clear();
+        courseData.clear();
+        setState(() {});
+      }
+    }else {
+      //  DocumentSnapshot obj = await FirebaseFirestore.instance.collection("C2WStudInfo").doc(id).get();
+      // dynamic data = obj.data();
+      // nameController.text = data['studName'];
+      // collegeController.text = data['collegeName'];
+      // courseData = data['enrolledCourses'];
+      // log("data : ${nameController.text}");
+      // setState((){});
+      if (nameController.text.trim().isNotEmpty &&
+        collegeController.text.trim().isNotEmpty &&
+        courseData.isNotEmpty) {
+        Map<String, dynamic> data = {
+          "studName": nameController.text,
+          "collegeName": collegeController.text,
+          "enrolledCourses": courseData
+        };
+        log("Map 2 : $data");
+        await FirebaseFirestore.instance.collection("C2WStudInfo").doc(id).update(data);
+        nameController.clear();
+        collegeController.clear();
+        courseData.clear();
+        setState(() {});
+      }
+    }
+    
+  }
+
+  @override 
+  void initState() {
+    super.initState();
+    if(isEdit!) {
+      // addStudData(widget.isEdit!,id: widget.id);
+      addData(id:widget.id);
+    }
+  }
+
+  void addData({String? id}) async{
+    DocumentSnapshot obj = await FirebaseFirestore.instance.collection("C2WStudInfo").doc(id).get();
+      dynamic data = obj.data();
+      nameController.text = data['studName'];
+      collegeController.text = data['collegeName'];
+      courseData = data['enrolledCourses'];
+      log("data : ${nameController.text}");
+      setState((){});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,30 +176,33 @@ class _AddStudDataState extends State<AddStudData> {
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                 ElevatedButton(
                     onPressed: () async {
-                      if (nameController.text.trim().isNotEmpty &&
-                          collegeController.text.trim().isNotEmpty &&
-                          courseData.isNotEmpty) {
-                        Map<String, dynamic> data = {
-                          "studName": nameController.text,
-                          "collegeName": collegeController.text,
-                          "enrolledCourses": courseData
-                        };
-                        log("Map 2 : $data");
-                        await FirebaseFirestore.instance
-                            .collection("C2WStudInfo")
-                            .add(data);
-                        nameController.clear();
-                        collegeController.clear();
-                        courseData.clear();
-                        setState(() {});
-                      }
+                      isEdit = widget.isEdit;
+                      addStudData(isEdit!,id:widget.id);
+                      // if (nameController.text.trim().isNotEmpty &&
+                      //     collegeController.text.trim().isNotEmpty &&
+                      //     courseData.isNotEmpty) {
+                      //   Map<String, dynamic> data = {
+                      //     "studName": nameController.text,
+                      //     "collegeName": collegeController.text,
+                      //     "enrolledCourses": courseData
+                      //   };
+                      //   log("Map 2 : $data");
+                      //   await FirebaseFirestore.instance
+                      //       .collection("C2WStudInfo")
+                      //       .add(data);
+                      //   nameController.clear();
+                      //   collegeController.clear();
+                      //   courseData.clear();
+                      //   setState(() {});
+                      // }
                     },
                     child: const Text("Add Data",
                         style: TextStyle(color: Colors.blue))),
                 ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => const GetStudData()),
+                        MaterialPageRoute(
+                            builder: (context) => const GetStudData()),
                       );
                     },
                     child: const Text("Get Data",

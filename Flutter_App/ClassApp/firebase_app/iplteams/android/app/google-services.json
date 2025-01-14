@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555200197598",
+    "project_id": "playerapp-36765",
+    "storage_bucket": "playerapp-36765.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555200197598:android:3f73f6e2ee9eae7c0a234f",
+        "android_client_info": {
+          "package_name": "com.example.iplteams"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBmfaBcbzCfA_2okvoB1lbq9YETzNguBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
